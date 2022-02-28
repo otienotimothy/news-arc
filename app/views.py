@@ -7,5 +7,5 @@ from .requests import get_news_sources
 def home():
     # Render a template for the home route
     news_sources_list = get_news_sources()
-    print(news_sources_list)
-    return 'Hello World'
+    # print(news_sources_list)
+    return render_template('index.html')
