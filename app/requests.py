@@ -38,15 +38,15 @@ def format_data(news_list):
     news = []
 
     for news_item in news_list:
-        id = news_item.get(id)
-        name = news_item.get(name)
-        description = news_item.get(description)
-        language = news_item.get(language)
-        url = news_item.get(url)
-        country = news_item.get(country)
+        source_id = news_item['id']
+        source_name = news_item['name']
+        source_description = news_item['description']
+        source_language = news_item['language']
+        source_url = news_item['url']
+        source_country = news_item['country']
 
         news_data = sources.News_Source(
-            id, name, description, language, url, country)
+            source_id, source_name, source_description, source_language, source_url, source_country)
 
         news.append(news_data)
 
