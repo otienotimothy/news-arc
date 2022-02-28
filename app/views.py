@@ -1,7 +1,5 @@
-from flask import Blueprint, render_template
+from app import app
 
-bp = Blueprint('news', __name__, url_prefix='/news')
-
-@bp.route('/')
+@app.route('/')
 def home():
     return 'Hello World'
