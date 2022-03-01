@@ -11,3 +11,9 @@
     text-decoration: none;
     font-size: 1.3rem;
 }
+
+@media(min-width: 990px){
+	.card {
+		width: 30%;
+	}
+}
