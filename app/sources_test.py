@@ -4,7 +4,7 @@ from models.sources import News_Source
 
 class News_sourcesTest(unittest.TestCase):
     '''
-    Test Class to test the behaviour of the Movie class
+    Test Class to test the behaviour of the New Source Class
     '''
 
     def setUp(self):
