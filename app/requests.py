@@ -1,7 +1,7 @@
 from app import app
 import urllib.request
 import json
-from .models import sources
+from .models import sources, articles
 
 # Getting the API KEY
 api_key = app.config['API_KEY']
@@ -51,3 +51,45 @@ def format_data(news_list):
         news.append(news_data)
 
     return news
+
+def get_top_headlines(source):
+    '''
+    Fetch News headlines based on a specified source
+    '''
+    top_headlines_base_url = app.config['TOP_HEADLINES_URL']
+    headlines_url = top_headlines_base_url.format(source, api_key)
+
+    with urllib.request.urlopen(headlines_url) as url:
+        res = url.read()
+        data = json.loads(res)
+
+        top_headlines = None
+
+        if data['totalResults']:
+            headline_list = data['articles']
+            top_headlines = format_articles(headline_list)
+
+    return top_headlines
+
+
+def format_articles(articles_list):
+    '''
+    Format the fetched news Articles as configured in the class Article blueprint
+    '''
+
+    top_articles = []
+
+    for article_item in articles_list:
+        source_name = article_item['source']['name']
+        author = article_item['author']
+        title = article_item['title']
+        content = article_item['content']
+        url = article_item['url']
+        img_url = article_item['urlToImage']
+        published = article_item['publishedAt']
+
+        article_data = articles.Article(source_name, author, title, content, url, img_url, published)
+
+        top_articles.append(article_data)
+
+    return top_articles
