@@ -72,6 +72,27 @@ def get_top_headlines(source):
     return top_headlines
 
 
+def get_articles_by_category(source):
+    '''
+    Fetch News headlines based on a specified source
+    '''
+    category_base_url = app.config['SEARCH_BY_CATEGORY_URL']
+    category_url = category_base_url.format(source, api_key)
+
+    with urllib.request.urlopen(category_url) as url:
+        res = url.read()
+        data = json.loads(res)
+
+        top_headlines = None
+
+        if data['totalResults']:
+            headline_list = data['articles']
+            top_headlines = format_articles(headline_list)
+
+    return top_headlines
+
+
+
 def format_articles(articles_list):
     '''
     Format the fetched news Articles as configured in the class Article blueprint

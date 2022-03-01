@@ -6,6 +6,8 @@ class Config:
 
     TOP_HEADLINES_URL = 'https://newsapi.org/v2/top-headlines?sources={}&from=2022-02-28&sortBy=popularity&apiKey={}'
 
+    SEARCH_BY_CATEGORY_URL = 'https://newsapi.org/v2/top-headlines?category={}&apiKey={}'
+
 
 class ProdConfig(Config):
     '''
