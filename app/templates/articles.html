@@ -17,6 +17,9 @@
 					by <span class="text-primary"> {{ article.author }}</span> of
 					<span class="text-danger">{{ article.source_name }}</span>
 				</p>
+				<p class="text-success">
+					{{ article.published_at }}
+				</p>
 				<p class="card-text">{{article.content}}</p>
 				<a
 					href="{{article.url}}"

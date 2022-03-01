@@ -13,7 +13,6 @@ def home():
 def category(category):
     # Render Article of a certain Category
     category_list = get_articles_by_category(category)
-    print(category_list)
     return render_template('articles.html', title=category, top_articles=category_list)
 
 @app.route('/headlines/<source>')

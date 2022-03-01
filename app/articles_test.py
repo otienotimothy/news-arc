@@ -34,7 +34,7 @@ class News_sourcesTest(unittest.TestCase):
             self.news_source.url, "https://www.antaranews.com/berita/2732549/145-warga-lebak-banten-terserang-dbd-empat-meninggal")
         self.assertEqual(self.news_source.img_url,
                          "https://img.antaranews.com/cache/800x533/2022/03/01/IMG_20220203_152900.jpg")
-        self.assertEqual(self.news_source.published, "2022-03-01T06:05:43Z")
+        self.assertEqual(self.news_source.published_at, "2022-03-01T06:05:43Z")
 
 
 if __name__ == '__main__':
