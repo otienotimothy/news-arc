@@ -1,7 +1,7 @@
 from app import app
 import urllib.request
 import json
-from .models import sources, articles
+from app.models import Article, News_Source
 
 # Getting the API KEY
 api_key = app.config['API_KEY']
@@ -45,7 +45,7 @@ def format_data(news_list):
         source_url = news_item['url']
         source_country = news_item['country']
 
-        news_data = sources.News_Source(
+        news_data = News_Source(
             source_id, source_name, source_description, source_language, source_url, source_country)
 
         news.append(news_data)
@@ -109,7 +109,7 @@ def format_articles(articles_list):
         img_url = article_item['urlToImage']
         published = article_item['publishedAt']
 
-        article_data = articles.Article(source_name, author, title, content, url, img_url, published)
+        article_data = Article(source_name, author, title, content, url, img_url, published)
 
         top_articles.append(article_data)
 

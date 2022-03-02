@@ -1,7 +1,7 @@
 from flask import render_template
 from app import app
 
-from .requests import get_news_sources, get_top_headlines, get_articles_by_category
+from ..requests import get_news_sources, get_top_headlines, get_articles_by_category
 
 @app.route('/')
 def home():

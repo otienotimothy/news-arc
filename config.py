@@ -1,3 +1,6 @@
+import os
+
+
 class Config:
     '''
     General configuration parent class
@@ -7,6 +10,10 @@ class Config:
     TOP_HEADLINES_URL = 'https://newsapi.org/v2/top-headlines?sources={}&from=2022-02-28&sortBy=popularity&apiKey={}'
 
     SEARCH_BY_CATEGORY_URL = 'https://newsapi.org/v2/top-headlines?category={}&language=en&apiKey={}'
+
+    API_KEY = os.environ.get('API_KEY')
+
+    SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 class ProdConfig(Config):
@@ -28,3 +35,8 @@ class DevConfig(Config):
     '''
 
     DEBUG = True
+
+config_options = {
+    'development': DevConfig,
+    'production': ProdConfig
+}
