@@ -31,8 +31,3 @@ class News_sourcesTest(unittest.TestCase):
         self.assertEqual(self.news_source.language, "en")
         self.assertEqual(self.news_source.url, "https://abcnews.go.com")
         self.assertEqual(self.news_source.country, "us")
-
-
-
-if __name__ == '__main__':
-    unittest.main()

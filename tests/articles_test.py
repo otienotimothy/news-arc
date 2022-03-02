@@ -1,5 +1,5 @@
 import unittest
-from models.articles import Article
+from app.models import Article
 
 
 class News_sourcesTest(unittest.TestCase):
@@ -37,5 +37,3 @@ class News_sourcesTest(unittest.TestCase):
         self.assertEqual(self.news_source.published_at, "2022-03-01T06:05:43Z")
 
 
-if __name__ == '__main__':
-    unittest.main()
