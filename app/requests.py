@@ -1,4 +1,4 @@
-from app import app
+
 import urllib.request
 import json
 from app.models import Article, News_Source
@@ -27,7 +27,7 @@ def get_news_sources():
     '''
     Function to Fetch a list of News Sources
     '''
-    sources_url = app.config['NEWS_SOURCES_BASE_URL']
+    sources_url = NEWS_SOURCES_BASE_URL
 
     news_sources_url = sources_url.format(api_key)
 
@@ -70,7 +70,7 @@ def get_top_headlines(source):
     '''
     Fetch News headlines based on a specified source
     '''
-    top_headlines_base_url = app.config['TOP_HEADLINES_URL']
+    top_headlines_base_url = TOP_HEADLINES_URL
     headlines_url = top_headlines_base_url.format(source, api_key)
 
     with urllib.request.urlopen(headlines_url) as url:
@@ -90,7 +90,7 @@ def get_articles_by_category(source):
     '''
     Fetch News headlines based on a specified source
     '''
-    category_base_url = app.config['SEARCH_BY_CATEGORY_URL']
+    category_base_url = SEARCH_BY_CATEGORY_URL
     category_url = category_base_url.format(source, api_key)
 
     with urllib.request.urlopen(category_url) as url:
