@@ -4,11 +4,25 @@ import json
 from app.models import Article, News_Source
 
 # Getting the API KEY
-api_key = app.config['API_KEY']
+# api_key = app.config['API_KEY']
+api_key = None
+NEWS_SOURCES_BASE_URL = None
+TOP_HEADLINES_URL = None
+SEARCH_BY_CATEGORY_URL = None
+
+
+# Set configurable objects
+def configure_request(app):
+    global api_key, NEWS_SOURCES_BASE_URL, TOP_HEADLINES_URL, SEARCH_BY_CATEGORY_URL
+    api_key = app.config['API_KEY']
+    NEWS_SOURCES_BASE_URL = app.config['NEWS_SOURCES_BASE_URL']
+    TOP_HEADLINES_URL = app.config['TOP_HEADLINES_URL']
+    SEARCH_BY_CATEGORY_URL = app.config['SEARCH_BY_CATEGORY_URL']
+
+
+
 
 # GET NEWS SOURCES
-
-
 def get_news_sources():
     '''
     Function to Fetch a list of News Sources
