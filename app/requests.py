@@ -103,7 +103,7 @@ def get_articles_by_category(source):
             headline_list = data['articles']
             top_headlines = format_articles(headline_list)
 
-    return top_headlines
+    return top_headlines if top_headlines else []
 
 
 
