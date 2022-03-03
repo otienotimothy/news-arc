@@ -4,9 +4,9 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask-script = "*"
 flask = "*"
 gunicorn = "*"
+flask-script = "==2.0.5"
 
 [dev-packages]
 autopep8 = "*"
